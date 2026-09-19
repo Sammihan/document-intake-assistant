@@ -1,0 +1,20 @@
+# Virtual environment
+.venv/
+
+# Environment variables
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.db
+*.db-journal
+data/
+
+# IDE
+.vscode/
+.idea/
+
+# Generated documents
+documents/*.docx
