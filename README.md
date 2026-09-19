@@ -7,7 +7,7 @@ Built with **FastAPI**, **Streamlit**, **Google Gemini**, **SQLAlchemy / SQLite*
 ---
 
 > [!IMPORTANT]
-> **Disclaimer**: This application is a technical intake demonstration. The generated output is a **FICTIONAL DOCUMENT â€” NOT LEGAL ADVICE**.
+> **Disclaimer**: This application is a technical intake demonstration. The generated output is a **FICTIONAL DOCUMENT — NOT LEGAL ADVICE**.
 
 ---
 
@@ -69,50 +69,50 @@ The application follows a decoupled client-server architecture. The Streamlit fr
 
 ```
 document-intake-assistant/
-â”œâ”€â”€ backend/
-â”‚   â”œâ”€â”€ api/
-â”‚   â”‚   â”œâ”€â”€ main.py                  # FastAPI application entrypoint & middleware
-â”‚   â”‚   â””â”€â”€ routes/
-â”‚   â”‚       â””â”€â”€ sessions.py          # Session, messaging, state, and document endpoints
-â”‚   â”œâ”€â”€ config.py                    # Environment variable loader
-â”‚   â”œâ”€â”€ database/
-â”‚   â”‚   â”œâ”€â”€ base.py                  # SQLAlchemy declarative base
-â”‚   â”‚   â”œâ”€â”€ init_db.py               # Table creation helper
-â”‚   â”‚   â””â”€â”€ session.py               # Engine and sessionmaker setup (SQLite)
-â”‚   â”œâ”€â”€ llm/
-â”‚   â”‚   â”œâ”€â”€ gemini.py                # Gemini client, extraction prompt, error handling
-â”‚   â”‚   â””â”€â”€ prompts.py               # System prompt and extraction schema definitions
-â”‚   â”œâ”€â”€ models/
-â”‚   â”‚   â””â”€â”€ database.py              # SQLAlchemy models (Session, Message, State)
-â”‚   â”œâ”€â”€ schemas/
-â”‚   â”‚   â”œâ”€â”€ api.py                   # FastAPI request/response schemas
-â”‚   â”‚   â”œâ”€â”€ llm.py                   # Pydantic schemas for LLM structured output
-â”‚   â”‚   â””â”€â”€ state.py                 # Core intake state schema (PersonalWishesState)
-â”‚   â””â”€â”€ services/
-â”‚       â”œâ”€â”€ document_generator.py    # Deterministic python-docx document builder
-â”‚       â”œâ”€â”€ followups.py             # Missing-field logic & message composer
-â”‚       â”œâ”€â”€ sessions.py              # Session orchestration & persistence
-â”‚       â””â”€â”€ state_updates.py         # State update engine & correction detection
-â”œâ”€â”€ frontend/
-â”‚   â”œâ”€â”€ api_client.py                # Typed HTTP client for FastAPI backend
-â”‚   â”œâ”€â”€ app.py                       # Streamlit multi-pane application
-â”‚   â””â”€â”€ display.py                   # State formatting & preview renderers
-â”œâ”€â”€ tests/
-â”‚   â”œâ”€â”€ conftest.py                  # Pytest fixtures & mock LLM setup
-â”‚   â”œâ”€â”€ helpers.py                   # Test session helpers
-â”‚   â”œâ”€â”€ test_api.py                  # Backend HTTP endpoint tests (9 tests)
-â”‚   â”œâ”€â”€ test_conversation_behavior.py# Intake flow, corrections, and conflict tests (20 tests)
-â”‚   â”œâ”€â”€ test_database.py             # Database persistence and cascade tests (2 tests)
-â”‚   â”œâ”€â”€ test_document_generation.py  # DOCX structure and formatting tests (10 tests)
-â”‚   â”œâ”€â”€ test_frontend.py             # Streamlit client and rendering tests (13 tests)
-â”‚   â”œâ”€â”€ test_llm_flow.py             # Gemini integration & mock extraction tests (11 tests)
-â”‚   â””â”€â”€ test_state_schema.py         # Pydantic schema validation tests (4 tests)
-â”œâ”€â”€ data/                            # SQLite database directory (document_intake.db)
-â”œâ”€â”€ documents/                       # Generated .docx storage directory
-â”œâ”€â”€ .env.example                     # Sample environment variables
-â”œâ”€â”€ pytest.ini                       # Pytest configuration
-â”œâ”€â”€ requirements.txt                 # Project dependencies
-â””â”€â”€ README.md
+├── backend/
+│   ├── api/
+│   │   ├── main.py                  # FastAPI application entrypoint & middleware
+│   │   └── routes/
+│   │       └── sessions.py          # Session, messaging, state, and document endpoints
+│   ├── config.py                    # Environment variable loader
+│   ├── database/
+│   │   ├── base.py                  # SQLAlchemy declarative base
+│   │   ├── init_db.py               # Table creation helper
+│   │   └── session.py               # Engine and sessionmaker setup (SQLite)
+│   ├── llm/
+│   │   ├── gemini.py                # Gemini client, extraction prompt, error handling
+│   │   └── prompts.py               # System prompt and extraction schema definitions
+│   ├── models/
+│   │   └── database.py              # SQLAlchemy models (Session, Message, State)
+│   ├── schemas/
+│   │   ├── api.py                   # FastAPI request/response schemas
+│   │   ├── llm.py                   # Pydantic schemas for LLM structured output
+│   │   └── state.py                 # Core intake state schema (PersonalWishesState)
+│   └── services/
+│       ├── document_generator.py    # Deterministic python-docx document builder
+│       ├── followups.py             # Missing-field logic & message composer
+│       ├── sessions.py              # Session orchestration & persistence
+│       └── state_updates.py         # State update engine & correction detection
+├── frontend/
+│   ├── api_client.py                # Typed HTTP client for FastAPI backend
+│   ├── app.py                       # Streamlit multi-pane application
+│   └── display.py                   # State formatting & preview renderers
+├── tests/
+│   ├── conftest.py                  # Pytest fixtures & mock LLM setup
+│   ├── helpers.py                   # Test session helpers
+│   ├── test_api.py                  # Backend HTTP endpoint tests (9 tests)
+│   ├── test_conversation_behavior.py# Intake flow, corrections, and conflict tests (20 tests)
+│   ├── test_database.py             # Database persistence and cascade tests (2 tests)
+│   ├── test_document_generation.py  # DOCX structure and formatting tests (10 tests)
+│   ├── test_frontend.py             # Streamlit client and rendering tests (13 tests)
+│   ├── test_llm_flow.py             # Gemini integration & mock extraction tests (11 tests)
+│   └── test_state_schema.py         # Pydantic schema validation tests (4 tests)
+├── data/                            # SQLite database directory (document_intake.db)
+├── documents/                       # Generated .docx storage directory
+├── .env.example                     # Sample environment variables
+├── pytest.ini                       # Pytest configuration
+├── requirements.txt                 # Project dependencies
+└── README.md
 ```
 
 ---
@@ -177,7 +177,7 @@ The assistant handles complex real-world conversational turns with deterministic
 ## 7. Deterministic Document Generation
 
 Document generation is performed by [`backend/services/document_generator.py`](backend/services/document_generator.py) using `python-docx`:
-- **Header**: `PERSONAL WISHES DOCUMENT` with mandatory notice `FICTIONAL DOCUMENT â€” NOT LEGAL ADVICE`.
+- **Header**: `PERSONAL WISHES DOCUMENT` with mandatory notice `FICTIONAL DOCUMENT — NOT LEGAL ADVICE`.
 - **Structured Sections**: Personal Information, Asset Coverage, Children, Executor, Specific Gifts, and Additional Wishes.
 - **Standardized Placeholders**: Unconfirmed fields are cleanly rendered as `"Not confirmed"`, `"None specified"`, or `"Not provided"`.
 - **Deterministic Rendering**: By compiling directly from validated `PersonalWishesState` records, document generation avoids generative formatting drift and hallucinations.
